@@ -28,7 +28,6 @@ namespace WebAPI.Application.UseCase
                 var consultaResponseDTO = new ConsultaResponseDTO();
 
                 consultaResponseDTO.Origen = "OMEKA";
-                consultaResponseDTO.Parametros = parametros;
                 consultaResponseDTO.Respuesta = _mapper.Map<List<ConsultaDTO>>(resultado);
                 response.Data = consultaResponseDTO;
                 response.Succeeded = true;
@@ -55,7 +54,6 @@ namespace WebAPI.Application.UseCase
                 var consultaResponseDTO = new ConsultaResponseDTO();
 
                 consultaResponseDTO.Origen = "OMEKA";
-                consultaResponseDTO.Parametros = parametros;
                 consultaResponseDTO.Respuesta = _mapper.Map<List<ConsultaDTO>>(resultado);
                 response.Data = consultaResponseDTO;
                 response.Succeeded = true;

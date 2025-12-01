@@ -5,7 +5,7 @@ using WebAPI.Application.UseCase.Interfaces;
 namespace WebAPI.Controllers
 {
     [ApiController]
-    [Route("api/MicroKOHA/[controller]")]
+    [Route("api/MicroOMEKA/[controller]")]
     public class ConsultaController : Controller
     {
         private readonly IConsultaUseCase _consultaUseCase;
