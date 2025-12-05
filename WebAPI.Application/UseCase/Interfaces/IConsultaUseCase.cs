@@ -7,5 +7,6 @@ namespace WebAPI.Application.UseCase.Interfaces
     {
         Task<Response<ConsultaResponseDTO>> ConsultaBasica(ConsultaRequestDTO parametros);
         Task<Response<ConsultaResponseDTO>> ConsultaAvanzada(ConsultaRequestDTO parametros);
+        Task<Response<DocumentoSPDTO>> ConsultaDetalle(string codigo);
     }
 }

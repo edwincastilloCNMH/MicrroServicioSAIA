@@ -10,6 +10,7 @@ namespace WebAPI.Application.Profiles
 		{
             CreateMap<ConsultaDTO, ConsultaEntity>().ReverseMap();
             CreateMap<ConsultaRequestDTO, ConsultaRequestEntity>().ReverseMap();
+            CreateMap<DocumentoSPDTO, DocumentoSPEntity>().ReverseMap();
         }
 	}
 }

@@ -10,6 +10,7 @@ namespace WebAPI.Infrastructure.Profiles
 		{
             CreateMap<ConsultaModel, ConsultaEntity>().ReverseMap();
             CreateMap<ConsultaRequestModel, ConsultaRequestEntity>().ReverseMap();
+            CreateMap<DocumentoSPModel, DocumentoSPEntity>().ReverseMap();
         }
 	}
 }

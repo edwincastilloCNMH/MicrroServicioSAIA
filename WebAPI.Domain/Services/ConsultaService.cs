@@ -22,5 +22,10 @@ namespace WebAPI.Domain.Services
         {
             return await _consultaRepository.VerResultadoConsultaAvanzada(consulta);
         }
+
+        public async Task<List<DocumentoSPEntity>> VerResultadoDetalle(string codigo)
+        {
+            return await _consultaRepository.VerResultadoDetalle(codigo);
+        }
     }
 }

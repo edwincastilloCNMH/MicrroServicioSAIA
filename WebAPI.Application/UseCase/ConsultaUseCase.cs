@@ -27,7 +27,7 @@ namespace WebAPI.Application.UseCase
 
                 var consultaResponseDTO = new ConsultaResponseDTO();
 
-                consultaResponseDTO.Origen = "OMEKA";
+                consultaResponseDTO.Origen = "SAIA";
                 consultaResponseDTO.Parametros = parametros;
                 consultaResponseDTO.Respuesta = _mapper.Map<List<ConsultaDTO>>(resultado);
                 response.Data = consultaResponseDTO;
@@ -54,10 +54,31 @@ namespace WebAPI.Application.UseCase
 
                 var consultaResponseDTO = new ConsultaResponseDTO();
 
-                consultaResponseDTO.Origen = "OMEKA";
+                consultaResponseDTO.Origen = "SAIA";
                 consultaResponseDTO.Parametros = parametros;
                 consultaResponseDTO.Respuesta = _mapper.Map<List<ConsultaDTO>>(resultado);
                 response.Data = consultaResponseDTO;
+                response.Succeeded = true;
+            }
+            catch (Exception e)
+            {
+                response.Succeeded = false;
+                response.Message = e.Message;
+            }
+
+            return response;
+        }
+
+        public async Task<Response<DocumentoSPDTO>> ConsultaDetalle(string codigo)
+        {
+            var response = new Response<DocumentoSPDTO>();
+            try
+            {
+                var resultado = await _consultaService.VerResultadoDetalle(codigo);
+
+                var dataResponse = _mapper.Map<List<DocumentoSPDTO>>(resultado);
+
+                response.Data = dataResponse.FirstOrDefault();
                 response.Succeeded = true;
             }
             catch (Exception e)

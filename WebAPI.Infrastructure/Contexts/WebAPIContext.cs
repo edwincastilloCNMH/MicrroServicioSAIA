@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using WebAPI.Infrastructure.Helpers;
-using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 using WebAPI.Infrastructure.Models;
 
 namespace WebAPI.Infrastructure.Contexts
@@ -11,6 +10,7 @@ namespace WebAPI.Infrastructure.Contexts
 		public IConfiguration configuration { get; set; }
 
         public DbSet<ConsultaModel> ConsultasModel { get; set; }
+        public DbSet<DocumentoSPModel> DocumentosSPModel { get; set; }
         public WebAPIContext()
         {
 			configuration = AppSettings.GetConfiguration();
@@ -26,12 +26,9 @@ namespace WebAPI.Infrastructure.Contexts
         {
             if (!optionsBuilder.IsConfigured)
             {
-                var connectionString = configuration.GetConnectionString("MySqlConnection");
+                var connectionString = configuration.GetConnectionString("SqlServerConnection");
 
-                optionsBuilder.UseMySql(
-                    connectionString,
-                    ServerVersion.AutoDetect(connectionString)
-                );
+                optionsBuilder.UseSqlServer(connectionString);
             }
         }
 
@@ -41,6 +38,7 @@ namespace WebAPI.Infrastructure.Contexts
 
 
             modelBuilder.Entity<ConsultaModel>().HasNoKey().ToView(null);
+            modelBuilder.Entity<DocumentoSPModel>().HasNoKey().ToView(null);
         }
     }
 }
