@@ -26,7 +26,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("[action]")]
-        public async Task<IActionResult> ConsultaBasicaAvanzada(ConsultaRequestDTO parametros)
+        public async Task<IActionResult> ConsultaAvanzada(ConsultaRequestDTO parametros)
         {
             var result = await _consultaUseCase.ConsultaAvanzada(parametros);
             if (!result.Succeeded)
